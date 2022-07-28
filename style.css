@@ -1,0 +1,41 @@
+header, main  {
+    font-family: "Source Sans Pro", serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+
+}
+
+.week-selection {
+    background-color: dimgray;
+    color: mintcream;
+    padding: 5px;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: darkgrey;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown:hover .week-selection{
+    background-color: slategray;
+}
