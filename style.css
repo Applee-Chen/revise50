@@ -12,18 +12,28 @@ header {
 
 }
 
-.week-selection {
+.selection {
     background-color: dimgray;
     color: mintcream;
-    padding: 5px;
+    padding: 10px;
     font-size: 10px;
     border: none;
     border-radius: 5px;
 }
 
+
 .dropdown {
     position: relative;
     display: inline-block;
+}
+
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown:hover .week-selection{
+    background-color: slategray;
 }
 
 .dropdown-content{
@@ -32,10 +42,12 @@ header {
     background-color: darkgrey;
 }
 
-.dropdown:hover .dropdown-content{
-    display: block;
+.dropdown-content > button {
+    border: none;
+    width: 100%;
+    padding: 8px;
 }
 
-.dropdown:hover .week-selection{
-    background-color: slategray;
+.dropdown-content > button:hover{
+    background-color: gray;
 }
