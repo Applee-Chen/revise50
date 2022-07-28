@@ -1,0 +1,104 @@
+:root {
+    --body-background: white;
+    --header-backgroud: pink;
+    --settings-button-background: var(--header-backgroud);
+    --font-color: black;
+    --option-button-background: var(var(--body-background));
+    --font-shadow: none;
+    --button-color-clicked:rgb(255, 236, 239);
+    --button-upper-border-color:rgb(251, 228, 232);
+}
+
+body {
+    background-color: var(--body-background);
+    margin: 0;
+    color: var(--font-color);
+}
+
+header, main  {
+    font-family: "Source Sans Pro", serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background: var(--header-backgroud);
+    text-shadow: var(--font-shadow);
+
+}
+
+#header-text{
+    font-size: 45px;
+}
+
+.setting-button {
+    background-color: var(--settings-button-background);
+    width: 80px;
+    padding: 10px 0px;
+    font-size: 10px;
+    border: none;
+    border-radius: 0px;
+    color: var(--font-color);
+}
+
+
+
+
+
+h2 {
+    text-align: center;
+}
+
+.option-button-group > button { 
+    position: relative;
+    font-size: 15px;
+    padding: 20px 0px; 
+    margin: 10px;
+    border-radius: 15px;
+    background-color: var(--option-button-background);
+    border: 1px solid var(--button-upper-border-color);
+    border-bottom: 8px outset pink;
+    border-right: 8px outset pink;
+    color: var(--font-color);
+    transition: border 0.05s, top 0.05s, margin-bottom 0.05s, background-color 0.05s;
+
+}
+
+
+.option-button-group > button:hover {
+    top: -4px;
+}
+
+.option-button-group > button:active {
+    border-bottom: 4px outset pink;
+    border-right: 4px outset pink;
+    top: 4px;
+    margin-bottom: 14px;
+    background-color: var(--button-color-clicked);
+}
+
+main > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+body.dark-theme {
+    --body-background:#161516;
+    --header-backgroud:#373234;
+    --option-button-background: #373234;
+    --font-color: rgb(248, 246, 247);
+    --settings-button-background:#373234;
+    --font-shadow: 2px 2px #e394a1;
+    --button-color-clicked: #b29fa6;
+    --button-upper-border-color: rgb(255, 213, 233);
+}
