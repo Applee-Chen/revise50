@@ -9,12 +9,32 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet">
     <title>revise50</title>
+    <script defer>
+        function toggleTheme() {
+            const button = document.querySelector('.setting-button.theme')
+            const icon = button.querySelector('span')
+            const body = document.querySelector('body')
+            button.addEventListener('click', () => {
+                if (icon.innerText === 'dark_mode') {
+                    icon.innerText = 'light_mode'
+                } else {
+                    icon.innerText = "dark_mode"
+                }
+                body.classList.toggle('dark-theme')
+            })
+        }
+        //toggleTheme()
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleTheme()
+            
+        })
+    </script>
 </head>
-<body>
+<body class="">
     <header>
         <h1 id="header-text">REVIEW50</h1>
         <div class="dropdown">
-            <button class="selection week">WEEK</button>
+            <button class="setting-button week">WEEK</button>
             <div class="dropdown-content">
                 <button>WEEK 1</button>
                 <button>WEEK 2</button>
@@ -28,23 +48,25 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="selection difficulty">DIFFICULTY</button>
+            <button class="setting-button difficulty">DIFFICULTY</button>
             <div class="dropdown-content">
                 <button>EASY</button>
                 <button>MEDIUM</button>
                 <button>HARD</button>
             </div>
         </div>
-        <button id="light">
+        <button class="setting-button theme">
             <span class="material-icons-outlined color-red">light_mode</span>
         </button>     
     </header>
     <main>
-        <h2>QUESTION</h2>
-        <button>OPTION A</button>
-        <button>OPTION B</button>
-        <button>OPTION C</button>
-        <button>OPTION D</button>
+        <h2>How to delete the whole table in SQL?</h2>
+        <div class="option-button-group">
+            <button>Use DROP command</button>
+            <button>Use DELETE command</button>
+            <button>Use ALTER command</button>
+            <button>Use ADD command</button>
+        </div>
     </main>
 </body>
 </html>
