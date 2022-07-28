@@ -12,6 +12,10 @@ header {
 
 }
 
+#header-text{
+    font-size: 45px;
+}
+
 .selection {
     background-color: dimgray;
     color: mintcream;
@@ -19,7 +23,7 @@ header {
     padding: 10px 0px;
     font-size: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 
@@ -47,8 +51,18 @@ header {
     border: none;
     width: 100%;
     padding: 8px;
+    margin: 0px;
 }
 
 .dropdown-content > button:hover{
     background-color: gray;
+}
+
+#light{
+    border: none;
+    background-color: white;
+}
+
+.material-icons-outlined.color-red {
+    color:orange;
 }

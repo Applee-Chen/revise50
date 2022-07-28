@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
     <title>revise50</title>
 </head>
 <body>
@@ -33,7 +35,9 @@
                 <button>HARD</button>
             </div>
         </div>
-        <button>light</button>
+        <button id="light">
+            <span class="material-icons-outlined color-red">light_mode</span>
+        </button>     
     </header>
     <main>
         <h2>QUESTION</h2>
