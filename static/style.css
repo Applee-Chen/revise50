@@ -73,9 +73,6 @@ header {
 
 
 
-.material-icons-outlined.color-red {
-    color:rgb(232, 154, 192);
-}
 
 h2 {
     text-align: center;
@@ -92,7 +89,7 @@ h2 {
     border-bottom: 8px outset pink;
     border-right: 8px outset pink;
 
-    transition: border 0.05s, top 0.05s, margin-bottom 0.05s;
+    transition: border 0.05s, top 0.05s, margin-bottom 0.05s, background-color 0.05s;
 
 }
 
@@ -104,8 +101,9 @@ h2 {
 .option-button-group > button:active {
     border-bottom: 4px outset pink;
     border-right: 4px outset pink;
-    top: 8px;
+    top: 4px;
     margin-bottom: 14px;
+    background-color: rgb(255, 236, 239);
 }
 
 main > div {
