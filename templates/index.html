@@ -23,9 +23,32 @@
                 body.classList.toggle('dark-theme')
             })
         }
+
+        function createButton(content) {
+            const buttonGroup = document.querySelector('.option-button-group')
+            const button = document.createElement('button')
+            button.innerText = content
+            buttonGroup.appendChild(button)
+        }
+
+        function setQuestionDesciption(content) {
+            const questionDescription = document.querySelector('#question-description')
+            questionDescription.innerText = content
+
+        }
         //toggleTheme()
         document.addEventListener('DOMContentLoaded', () => {
             toggleTheme()
+            const range = parseInt("{{ id_range }}")
+            let numberId = Math.floor(Math.random()*(range + 1))
+            fetch(`/question/${numberId}`)
+                .then(e => e.json())
+                .then(e => {
+                    const description = e.description
+                    const options = e.options
+                    options.forEach(option => createButton(option.description))
+                    setQuestionDesciption(description)
+                })
             
         })
     </script>
@@ -38,12 +61,8 @@
         </button>     
     </header>
     <main>
-        <h2>How to delete the whole table in SQL?</h2>
+        <h2 id="question-description"></h2>
         <div class="option-button-group">
-            <button>Use DROP command</button>
-            <button>Use DELETE command</button>
-            <button>Use ALTER command</button>
-            <button>Use ADD command</button>
         </div>
     </main>
 </body>
