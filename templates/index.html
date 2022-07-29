@@ -37,10 +37,31 @@
       function getQuestionDescription() {
         return document.querySelector("#question-description");
       }
-      function createButton(content) {
+
+      function createCorrectIcon() {
+        const icon = document.createElement('span');
+        icon.classList.add('material-icons-outlined')
+        icon.classList.add('result-icon')
+        icon.innerText = 'done'
+        icon.style.display = 'none'
+        return icon
+      }
+
+      function createIncorrectIcon() {
+        const icon = document.createElement('span');
+        icon.classList.add('material-icons-outlined')
+        icon.classList.add('result-icon')
+        icon.innerText = 'close'
+        icon.style.display = 'none'
+        return icon
+      }
+
+      function createButton(content, isCorrect) {
         const buttonGroup = getButtonGroup();
         const button = document.createElement("button");
         button.innerText = content;
+        const icon = isCorrect ? createCorrectIcon() : createIncorrectIcon()
+        button.appendChild(icon)
         buttonGroup.appendChild(button);
         return button;
       }
@@ -64,9 +85,11 @@
             const options = shuffle(question.options)
             const disableButton = new Event('disableButton')
             options.forEach((option) => {
-              const button = createButton(option.description);
+              const button = createButton(option.description, option.isCorrect === true ? true : false)
               document.addEventListener('disableButton', () => {
                 button.disabled = true
+                const icon = button.querySelector('.result-icon')
+                icon.style.display = 'block'
               })
               button.addEventListener("click", () => {
                 button.classList.add("selected")
@@ -76,6 +99,7 @@
                 } else {
                     // TODO animation
                 }
+
                 setTimeout(() => {
                     document.dispatchEvent(nextQuestionEvent)
                     

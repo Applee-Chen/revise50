@@ -92,10 +92,6 @@ main > div {
     flex-wrap: wrap;
 }
 
-
-
-
-
 body.dark-theme {
     --body-background:#161516;
     --header-backgroud:#373234;
@@ -105,4 +101,10 @@ body.dark-theme {
     --font-shadow: 2px 2px #e394a1;
     --button-color-clicked: #b29fa6;
     --button-upper-border-color: rgb(255, 213, 233);
+}
+
+.result-icon {
+    display: block;
+    position: absolute;
+    left: 350px;
 }
