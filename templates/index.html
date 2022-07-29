@@ -1,69 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
     <title>revise50</title>
-    <script defer>
-        function toggleTheme() {
-            const button = document.querySelector('.setting-button.theme')
-            const icon = button.querySelector('span')
-            const body = document.querySelector('body')
-            button.addEventListener('click', () => {
-                if (icon.innerText === 'dark_mode') {
-                    icon.innerText = 'light_mode'
+    <script defer type="module">
+      function toggleTheme() {
+        const button = document.querySelector(".setting-button.theme");
+        const icon = button.querySelector("span");
+        const body = document.querySelector("body");
+        button.addEventListener("click", () => {
+          if (icon.innerText === "dark_mode") {
+            icon.innerText = "light_mode";
+          } else {
+            icon.innerText = "dark_mode";
+          }
+          body.classList.toggle("dark-theme");
+        });
+      }
+      function getButtonGroup() {
+        return document.querySelector(".option-button-group");
+      }
+      function getQuestionDescription() {
+        return document.querySelector("#question-description");
+      }
+      function createButton(content) {
+        const buttonGroup = getButtonGroup();
+        const button = document.createElement("button");
+        button.innerText = content;
+        buttonGroup.appendChild(button);
+        return button;
+      }
+
+      function setQuestionDesciption(content) {
+        const questionDescription = getQuestionDescription();
+        questionDescription.innerText = content;
+      }
+
+      function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+      }
+      
+      function showQuestion(maxId, nextQuestionEvent) {
+        const numberId = Math.floor(Math.random() * (maxId + 1));
+        fetch(`/question/${numberId}`)
+          .then((e) => e.json())
+          .then((question) => {
+            const description = question.description
+            setQuestionDesciption(description)
+            const options = shuffle(question.options)
+            options.forEach((option) => {
+              const button = createButton(option.description);
+              button.addEventListener("click", () => {
+                button.classList.add("selected")
+                if (option.isCorrect) {
+                  alert('That is correct')
                 } else {
-                    icon.innerText = "dark_mode"
+                  alert('Wrong')
                 }
-                body.classList.toggle('dark-theme')
-            })
-        }
+                document.dispatchEvent(nextQuestionEvent)
+              });
+            });
+          });
+      }
 
-        function createButton(content) {
-            const buttonGroup = document.querySelector('.option-button-group')
-            const button = document.createElement('button')
-            button.innerText = content
-            buttonGroup.appendChild(button)
-        }
+      function cleanUp() {
+        const questionDescription = getQuestionDescription()
+        const buttonGroup = getButtonGroup()
+        questionDescription.innerText = ''
+        buttonGroup.innerHTML = ''
+      }
 
-        function setQuestionDesciption(content) {
-            const questionDescription = document.querySelector('#question-description')
-            questionDescription.innerText = content
-
-        }
-        //toggleTheme()
-        document.addEventListener('DOMContentLoaded', () => {
-            toggleTheme()
-            const range = parseInt("{{ id_range }}")
-            let numberId = Math.floor(Math.random()*(range + 1))
-            fetch(`/question/${numberId}`)
-                .then(e => e.json())
-                .then(e => {
-                    const description = e.description
-                    const options = e.options
-                    options.forEach(option => createButton(option.description))
-                    setQuestionDesciption(description)
-                })
-            
-        })
+      toggleTheme();
+      const maxId = parseInt("{{ id_range }}");
+      const nextQuestionEvent = new Event("nextQuestion");
+      document.addEventListener("nextQuestion", () => {
+        cleanUp();
+        showQuestion(maxId, nextQuestionEvent);
+      })
+      document.dispatchEvent(nextQuestionEvent)
     </script>
-</head>
-<body class="">
+  </head>
+  <body class="">
     <header>
-        <h1 id="header-text">REVISE50</h1>
-        <button class="setting-button theme">
-            <span class="material-icons-outlined color-red">light_mode</span>
-        </button>     
+      <h1 id="header-text">REVISE50</h1>
+      <button class="setting-button theme">
+        <span class="material-icons-outlined color-red">light_mode</span>
+      </button>
     </header>
     <main>
-        <h2 id="question-description"></h2>
-        <div class="option-button-group">
-        </div>
+      <h2 id="question-description"></h2>
+      <div class="option-button-group"></div>
     </main>
-</body>
+  </body>
 </html>
