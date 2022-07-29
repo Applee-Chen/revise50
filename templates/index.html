@@ -53,7 +53,7 @@
       function shuffle(array) {
         return array.sort(() => Math.random() - 0.5);
       }
-      
+
       function showQuestion(maxId, nextQuestionEvent) {
         const numberId = Math.floor(Math.random() * (maxId + 1));
         fetch(`/question/${numberId}`)
@@ -62,16 +62,24 @@
             const description = question.description
             setQuestionDesciption(description)
             const options = shuffle(question.options)
+            const disableButton = new Event('disableButton')
             options.forEach((option) => {
               const button = createButton(option.description);
+              document.addEventListener('disableButton', () => {
+                button.disabled = true
+              })
               button.addEventListener("click", () => {
                 button.classList.add("selected")
+                document.dispatchEvent(disableButton)
                 if (option.isCorrect) {
-                  alert('That is correct')
+                    // TODO animation
                 } else {
-                  alert('Wrong')
+                    // TODO animation
                 }
-                document.dispatchEvent(nextQuestionEvent)
+                setTimeout(() => {
+                    document.dispatchEvent(nextQuestionEvent)
+                    
+                }, 5000);
               });
             });
           });

@@ -80,6 +80,10 @@ h2 {
     background-color: var(--button-color-clicked);
 }
 
+.option-button-group > button:disabled {
+    top: 0px;
+}
+
 main > div {
     display: flex;
     flex-direction: column;
