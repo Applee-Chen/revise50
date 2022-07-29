@@ -1,0 +1,33 @@
+---
+- description: What is the function of a compiler?
+  week: week 1
+  difficulty: medium
+  options:
+  - description: 'Convert one language into another language.'
+    isCorrect: true
+  - description: 'Convert binaries into actual numbers.'
+  - description: 'Convert assembly language code to machine code.'
+
+- description: What command do we use to delete a file named 'hello' in language C?
+  week: week 1
+  difficulty: easy
+  options:
+  - description: 'cd hello'
+  - description: 'ls hello'
+  - description: 'rm hello'
+    isCorrect: true
+  - description: 'mkdir hello'
+
+- description: What is a string in cs50.h?
+  week: week 1
+  difficulty: hard
+  options:
+  - description: 'char'
+  - description: 'char *'
+    isCorrect: true
+  - description: 'char **'
+  - description: 'const char *'
+
+
+
+  

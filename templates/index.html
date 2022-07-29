@@ -1,50 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
     <title>revise50</title>
-    <script defer>
-        function toggleTheme() {
-            const button = document.querySelector('.setting-button.theme')
-            const icon = button.querySelector('span')
-            const body = document.querySelector('body')
-            button.addEventListener('click', () => {
-                if (icon.innerText === 'dark_mode') {
-                    icon.innerText = 'light_mode'
+    <script defer type="module">
+      function toggleTheme() {
+        const button = document.querySelector(".setting-button.theme");
+        const icon = button.querySelector("span");
+        const body = document.querySelector("body");
+        button.addEventListener("click", () => {
+          if (icon.innerText === "dark_mode") {
+            icon.innerText = "light_mode";
+          } else {
+            icon.innerText = "dark_mode";
+          }
+          body.classList.toggle("dark-theme");
+        });
+      }
+      function getButtonGroup() {
+        return document.querySelector(".option-button-group");
+      }
+      function getQuestionDescription() {
+        return document.querySelector("#question-description");
+      }
+
+      function createCorrectIcon() {
+        const icon = document.createElement('span');
+        icon.classList.add('material-icons-outlined')
+        icon.classList.add('result-icon')
+        icon.innerText = 'done'
+        icon.style.display = 'none'
+        return icon
+      }
+
+      function createIncorrectIcon() {
+        const icon = document.createElement('span');
+        icon.classList.add('material-icons-outlined')
+        icon.classList.add('result-icon')
+        icon.innerText = 'close'
+        icon.style.display = 'none'
+        return icon
+      }
+
+      function createButton(content, isCorrect) {
+        const buttonGroup = getButtonGroup();
+        const button = document.createElement("button");
+        button.innerText = content;
+        const icon = isCorrect ? createCorrectIcon() : createIncorrectIcon()
+        button.appendChild(icon)
+        buttonGroup.appendChild(button);
+        return button;
+      }
+
+      function setQuestionDesciption(content) {
+        const questionDescription = getQuestionDescription();
+        questionDescription.innerText = content;
+      }
+
+      function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+      }
+
+      function showQuestion(maxId, nextQuestionEvent) {
+        const numberId = Math.floor(Math.random() * (maxId + 1));
+        fetch(`/question/${numberId}`)
+          .then((e) => e.json())
+          .then((question) => {
+            const description = question.description
+            setQuestionDesciption(description)
+            const options = shuffle(question.options)
+            const disableButton = new Event('disableButton')
+            options.forEach((option) => {
+              const button = createButton(option.description, option.isCorrect === true ? true : false)
+              document.addEventListener('disableButton', () => {
+                button.disabled = true
+                const icon = button.querySelector('.result-icon')
+                icon.style.display = 'block'
+              })
+              button.addEventListener("click", () => {
+                button.classList.add("selected")
+                document.dispatchEvent(disableButton)
+                if (option.isCorrect) {
+                    // TODO animation
                 } else {
-                    icon.innerText = "dark_mode"
+                    // TODO animation
                 }
-                body.classList.toggle('dark-theme')
-            })
-        }
-        //toggleTheme()
-        document.addEventListener('DOMContentLoaded', () => {
-            toggleTheme()
-            
-        })
+
+                setTimeout(() => {
+                    document.dispatchEvent(nextQuestionEvent)
+                    
+                }, 5000);
+              });
+            });
+          });
+      }
+
+      function cleanUp() {
+        const questionDescription = getQuestionDescription()
+        const buttonGroup = getButtonGroup()
+        questionDescription.innerText = ''
+        buttonGroup.innerHTML = ''
+      }
+
+      toggleTheme();
+      const maxId = parseInt("{{ id_range }}");
+      const nextQuestionEvent = new Event("nextQuestion");
+      document.addEventListener("nextQuestion", () => {
+        cleanUp();
+        showQuestion(maxId, nextQuestionEvent);
+      })
+      document.dispatchEvent(nextQuestionEvent)
     </script>
-</head>
-<body class="">
+  </head>
+  <body class="">
     <header>
-        <h1 id="header-text">REVISE50</h1>
-        <button class="setting-button theme">
-            <span class="material-icons-outlined color-red">light_mode</span>
-        </button>     
+      <h1 id="header-text">REVISE50</h1>
+      <button class="setting-button theme">
+        <span class="material-icons-outlined color-red">light_mode</span>
+      </button>
     </header>
     <main>
-        <h2>How to delete the whole table in SQL?</h2>
-        <div class="option-button-group">
-            <button>Use DROP command</button>
-            <button>Use DELETE command</button>
-            <button>Use ALTER command</button>
-            <button>Use ADD command</button>
-        </div>
+      <h2 id="question-description"></h2>
+      <div class="option-button-group"></div>
     </main>
-</body>
+  </body>
 </html>

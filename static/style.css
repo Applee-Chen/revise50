@@ -63,7 +63,7 @@ h2 {
     border-bottom: 8px outset pink;
     border-right: 8px outset pink;
     color: var(--font-color);
-    transition: border 0.05s, top 0.05s, margin-bottom 0.05s, background-color 0.05s;
+    transition: border 0.1s, top 0.1s, margin-bottom 0.1s, background-color 0.1s;
 
 }
 
@@ -72,12 +72,16 @@ h2 {
     top: -4px;
 }
 
-.option-button-group > button:active {
+.option-button-group > button.selected {
     border-bottom: 4px outset pink;
     border-right: 4px outset pink;
     top: 4px;
     margin-bottom: 14px;
     background-color: var(--button-color-clicked);
+}
+
+.option-button-group > button:disabled {
+    top: 0px;
 }
 
 main > div {
@@ -88,10 +92,6 @@ main > div {
     flex-wrap: wrap;
 }
 
-
-
-
-
 body.dark-theme {
     --body-background:#161516;
     --header-backgroud:#373234;
@@ -101,4 +101,10 @@ body.dark-theme {
     --font-shadow: 2px 2px #e394a1;
     --button-color-clicked: #b29fa6;
     --button-upper-border-color: rgb(255, 213, 233);
+}
+
+.result-icon {
+    display: block;
+    position: absolute;
+    left: 350px;
 }
