@@ -1,5 +1,7 @@
 let questionQueue = [];
 let unseenQuestionIds = [];
+let questionHistory = []
+let timeStart = new Date()
 /**
  * Return a random number uniformly chosen from 0...n - 1
  * @param {*} n
@@ -72,10 +74,60 @@ function seeQuestion(id) {
   }
 }
 
+function createCongrats() {
+  const congrats = document.createElement('h2')
+  congrats.innerText = 'Congratulations! You have finished all the questions!'
+  return congrats
+}
+
+function createTableRow(name, value) {
+  const nameElement = document.createElement('td')
+  nameElement.innerText = name
+  const valueElement = document.createElement('td')
+  valueElement.innerText = value
+  const row = document.createElement('tr')
+  row.appendChild(nameElement)
+  row.appendChild(valueElement)
+  return row  
+}
+
+function createStatsTable() {
+  const table = document.createElement('table')
+  let totalQuestions = questionHistory.length
+  let correctQuestions = questionHistory.reduce((sum, question) => sum + (question.isCorrect ? 1 : 0), 0)
+  let rateOfCorrectness = correctQuestions / totalQuestions
+  let currentTime = new Date()
+  table.appendChild(createTableRow('Total questions', totalQuestions))
+  table.appendChild(createTableRow('Correct questions', correctQuestions))
+  table.appendChild(createTableRow('Rate of correctness', rateOfCorrectness))
+  table.appendChild(createTableRow('Time taken (minutes)', (currentTime - timeStart)/60000))
+  return table
+}
+
+function createRestartButton() {
+  const button = document.createElement('button')
+  button.innerText = 'restart'
+  button.onclick = () => { location.reload() }
+  return button
+}
+
+function showFinishPage() {
+  const main = document.querySelector('main')
+  main.innerHTML = ""
+  const congrats = createCongrats()
+  const table = createStatsTable()
+  const restartButton = createRestartButton()
+  main.appendChild(congrats)
+  main.appendChild(table)
+  main.append(restartButton)
+  congrats.style.right = '0px'
+
+}
+
 function showQuestion(nextQuestionEvent) {
   // pop the first question
   if (questionQueue.length === 0) {
-    alert('you have finished all questions')
+    showFinishPage()
     return
   }
   let question = questionQueue.shift();
@@ -110,11 +162,8 @@ function showQuestion(nextQuestionEvent) {
     button.addEventListener("click", () => {
       button.classList.add("selected");
       document.dispatchEvent(disableButton);
-      // if (option.isCorrect) {
-      //   // TODO animation
-      // } else {
-      //   // TODO animation
-      // }
+      question.isCorrect = option.isCorrect === true ? true : false
+      questionHistory.push(question)
       const questionDescription = getQuestionDescription();
       const optionButtonGroup = getButtonGroup();
       setTimeout(() => {

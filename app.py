@@ -17,9 +17,12 @@ for i in range(len(questions)):
 
 @app.route('/')
 def index():
+    initial_questions_number = len(questions)
+    if initial_questions_number > 5:
+        initial_questions_number = 5
     return render_template('index.html',
                            id_range=(len(questions) - 1),
-                           initial_questions = json.dumps(random.sample(questions, 5)))
+                           initial_questions = json.dumps(random.sample(questions, initial_questions_number)))
 
 
 @app.route('/question/<int:id>')
