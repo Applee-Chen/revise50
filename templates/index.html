@@ -10,6 +10,7 @@
     <title>revise50</title>
     <script>
       window.maxId = parseInt("{{ id_range }}");
+      window.initialQuestions = {{ initial_questions|safe }}
     </script>
     <script type="module" src="{{ url_for('static', filename='index.js') }}"></script>
   </head>
