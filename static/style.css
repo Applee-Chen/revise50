@@ -75,6 +75,40 @@ h2 {
   transition: border 0.1s, top 0.1s, margin-bottom 0.1s, background-color 0.1s;
 }
 
+#restart_id{
+  position: relative;
+  font-size: 15px;
+  padding: 20px 20px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: var(--option-button-background);
+  border: 1px solid var(--button-upper-border-color);
+  border-bottom: 8px outset pink;
+  border-right: 8px outset pink;
+  color: var(--font-color);
+  transition: border 0.1s, top 0.1s, margin-bottom 0.1s, background-color 0.1s;
+  display: flex;
+  justify-items: center;
+}
+
+
+#restart_id:hover{
+    top: -4px;
+}
+
+#restart_id{
+  border-bottom: 4px outset pink;
+  border-right: 4px outset pink;
+  top: 4px;
+  margin-bottom: 14px;
+  background-color: var(--button-color-clicked);
+}
+
+#restart_id:disabled{
+    top: 0px;
+}
+
+
 .option-button-group > button:hover {
   top: -4px;
 }
@@ -118,4 +152,9 @@ body.dark-theme {
 .result-icon {
   position: absolute;
   left: 90%;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
 }

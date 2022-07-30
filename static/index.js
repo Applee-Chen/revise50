@@ -107,6 +107,7 @@ function createStatsTable() {
 function createRestartButton() {
   const button = document.createElement('button')
   button.innerText = 'restart'
+  button.id = 'restart_id'
   button.onclick = () => { location.reload() }
   return button
 }
