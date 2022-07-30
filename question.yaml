@@ -220,7 +220,7 @@
   - description: 'SELECT title FROM movies ORDER BY id DESC LIMIT 1'
   - description: 'SELECT title FROM movies WHERE id = (SELECT movie_id FROM ratings ORDER BY ratings DESC LIMIT 1)'
     isCorrect: true
-  - description: 'SELECT title FROM movies WHERE id = (SELECT id FROM ratings ORDER BY ratings DESC LIMIT 1'
+  - description: 'SELECT title FROM movies WHERE id = (SELECT id FROM ratings ORDER BY ratings DESC LIMIT 1)'
   - description: 'SELECT title FROM movies ORDER BY movie_id DESC LIMIT 1'
 
   
@@ -232,7 +232,7 @@
     isCorrect: true
   - description: 'Hypertext Transmission Protocol'
   - description: 'Hypertext Trading Protocol'
-  - description: 'hypertext Transfer Trading Protocol'
+  - description: 'Hypertext Transfer Trading Protocol'
 
   
 - description: Which tag in HTML is used for a link?
@@ -271,11 +271,11 @@
   week: week 9
   difficulty: medium
   options:
-  - description: 'db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", price)'
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", price)
     isCorrect: true
-  - description: 'db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", 100)'
-  - description: 'db.execute("INSERT INTO prices (good, price) VALUES ('tote', '100')")'
-  - description: 'db.execute("INSERT INTO prices (good, price) VALUES (?, ?)", tote, price)'
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", 100)
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', '100')")
+  - description: db.execute("INSERT INTO prices (good, price) VALUES (?, ?)", tote, price)
 
  
 
