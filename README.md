@@ -6,7 +6,7 @@
 
 REVISE50 is a website that allows users to go over all content learnt in CS50 by doing multiple questions. There are 3 questions per week and their difficulty ranges from easy to hard in order cover a wider range of content. 
 
-The whole project includes 'app.py' written in python to render our templates and 'index.html' to design the layout of the webpage, also 'style.css' for a personalized styling. We adopted the use of AJAX rather than creating a database in order to save running time and improve managerial efficiencies. Also, we writes the questions file in a format called 'YAML', which is way more readable and easy to write compared to csv files.
+The whole project includes 'app.py' written in python to render our templates and 'index.html' to design the layout of the webpage, also 'style.css' for a personalized styling. We adopted the use of AJAX rather than creating a database in order to save running time and improve managerial efficiencies. Also, we writes the questions file in a format called 'YAML', which is way more readable and easy to write compared to csv files. 
 
 The theme of the webpage is organized around the color 'pink', we also have two modes for users to switch in case at night they prefer dark mode. We also spend time designing animation of the buttons so the whole process of revising becomes more engaging and relaxing.
 
