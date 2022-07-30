@@ -8,279 +8,271 @@
   - description: 'Convert binaries into actual numbers.'
   - description: 'Convert assembly language code to machine code.'
 
-# - description: What command do we use to delete a file named 'hello' in language C?
-#   week: week 1
-#   difficulty: easy
-#   options:
-#   - description: 'cd hello'
-#   - description: 'ls hello'
-#   - description: 'rm hello'
-#     isCorrect: true
-#   - description: 'mkdir hello'
+- description: What command do we use to delete a file named 'hello' in language C?
+  week: week 1
+  difficulty: easy
+  options:
+  - description: 'cd hello'
+  - description: 'ls hello'
+  - description: 'rm hello'
+    isCorrect: true
+  - description: 'mkdir hello'
 
-# - description: What is a string in cs50.h?
-#   week: week 1
-#   difficulty: hard
-#   options:
-#   - description: 'char'
-#   - description: 'char *'
-#     isCorrect: true
-#   - description: 'char **'
-#   - description: 'const char *'
+- description: What is a string in cs50.h?
+  week: week 1
+  difficulty: hard
+  options:
+  - description: 'char'
+  - description: 'char *'
+    isCorrect: true
+  - description: 'char **'
+  - description: 'const char *'
 
-# - description: How many bytes does an int take?
-#   week: week 2
-#   difficulty: medium
-#   options:
-#   - description: '2'
-#   - description: '3'
-#   - description: '4'
-#     isCorrect: true
-#   - description: '5'
+- description: How many bytes does an int take?
+  week: week 2
+  difficulty: medium
+  options:
+  - description: '2'
+  - description: '3'
+  - description: '4'
+    isCorrect: true
+  - description: '5'
 
-# - description: What is the output of printf("%d", 'Z')?
-#   week: week 2
-#   difficulty: hard
-#   options:
-#   - description: 'Z'
-#   - description: 'z'
-#   - description: '90'
-#     isCorrect: true
-#   - description: '122'
+- description: What is the output of printf("%d", 'Z')?
+  week: week 2
+  difficulty: hard
+  options:
+  - description: 'Z'
+  - description: 'z'
+  - description: '90'
+    isCorrect: true
+  - description: '122'
 
-# - description: For string s = "Apple!", what is s[3]?
-#   week: week 2
-#   difficulty: easy
-#   options:
-#   - description: 'l'
-#     isCorrect: true
-#   - description: 'A'
-#   - description: 'p'
-#   - description: 'e'
-
-  
-# - description: Which sorting method looks for the smallest number first then looks at each number in order?
-#   week: week 3
-#   difficulty: medium
-#   options:
-#   - description: 'Selection sort'
-#     isCorrect: true
-#   - description: 'Bubble sort'
-#   - description: 'Merge sort'
-#   - description: 'Quick sort'
+- description: For string s = "Apple!", what is s[3]?
+  week: week 2
+  difficulty: easy
+  options:
+  - description: 'l'
+    isCorrect: true
+  - description: 'A'
+  - description: 'p'
+  - description: 'e'
 
   
-# - description: Which of the sorting methods below has the shortest running time (in terms of their orders)?
-#   week: week 3
-#   difficulty: hard
-#   options:
-#   - description: 'Merge sort'
-#     isCorrect: true
-#   - description: 'Bubble sort'
-#   - description: 'Selection sort'
-#   - description: 'Insertion sort'
+- description: Which sorting method looks for the smallest number first then looks at each number in order?
+  week: week 3
+  difficulty: medium
+  options:
+  - description: 'Selection sort'
+    isCorrect: true
+  - description: 'Bubble sort'
+  - description: 'Merge sort'
+  - description: 'Quick sort'
 
   
-# - description: How can we define our own data type in C?
-#   week: week 3
-#   difficulty: easy
-#   options:
-#   - description: 'typedef struct'
-#     isCorrect: true
-#   - description: 'def'
-#   - description: 'public class'
-#   - description: 'struct'
+- description: Which of the sorting methods below has the shortest running time (in terms of their orders)?
+  week: week 3
+  difficulty: hard
+  options:
+  - description: 'Merge sort'
+    isCorrect: true
+  - description: 'Bubble sort'
+  - description: 'Selection sort'
+  - description: 'Insertion sort'
 
   
-# - description: Which color does '#FF0000' represent? 
-#   week: week 4
-#   difficulty: easy
-#   options:
-#   - description: 'White'
-#   - description: 'Red'
-#     isCorrect: true
-#   - description: 'Green'
-#   - description: 'Blue'
+- description: How can we define our own data type in C?
+  week: week 3
+  difficulty: easy
+  options:
+  - description: 'typedef struct'
+    isCorrect: true
+  - description: 'def'
+  - description: 'public class'
+  - description: 'struct'
 
   
-# - description: If we have defined 'int n = 100; int *p = &n;' which option could help us print out the number '100'?
-#   week: week 4
-#   difficulty: medium
-#   options:
-#   - description: 'printf("%i\n", *p);'
-#     isCorrect: true
-#   - description: 'printf("%p\n", p);'
-#   - description: 'printf("%p\n", n);'
-#   - description: printf('n')
+- description: Which color does '#FF0000' represent? 
+  week: week 4
+  difficulty: easy
+  options:
+  - description: 'White'
+  - description: 'Red'
+    isCorrect: true
+  - description: 'Green'
+  - description: 'Blue'
 
   
-# - description: If we have defined 'int scores[] = {96, 97, 98, 99, 100}' What will printf("%i\n", *(scores + 1)) produce?
-#   week: week 4
-#   difficulty: hard
-#   options:
-#   - description: '96'
-#   - description: 'The address where 96 is stored in'
-#   - description: '97'
-#     isCorrect: true
-#   - description: 'The address where 97 is stored in'
+- description: If we have defined 'int n = 100; int *p = &n;' which option could help us print out the number '100'?
+  week: week 4
+  difficulty: medium
+  options:
+  - description: 'printf("%i\n", *p);'
+    isCorrect: true
+  - description: 'printf("%p\n", p);'
+  - description: 'printf("%p\n", n);'
+  - description: printf('n')
 
   
-# - description: Which function should we use if we want to grow the original linked list?
-#   week: week 5
-#   difficulty: easy
-#   options:
-#   - description: 'realloc'
-#     isCorrect: true
-#   - description: 'malloc'
-#   - description: 'calloc'
-#   - description: 'free'
+- description: If we have defined 'int scores[] = {96, 97, 98, 99, 100}' What will printf("%i\n", *(scores + 1)) produce?
+  week: week 4
+  difficulty: hard
+  options:
+  - description: '96'
+  - description: 'The address where 96 is stored in'
+  - description: '97'
+    isCorrect: true
+  - description: 'The address where 97 is stored in'
 
   
-# - description: What is the height of a binary search tree that has elements 1, 2, 3, 4, 5, 6, 7 ?
-#   week: week 5
-#   difficulty: medium
-#   options:
-#   - description: '3'
-#     isCorrect: true
-#   - description: '2'
-#   - description: '4'
-#   - description: '1'
+- description: Which function should we use if we want to grow the original linked list?
+  week: week 5
+  difficulty: easy
+  options:
+  - description: 'realloc'
+    isCorrect: true
+  - description: 'malloc'
+  - description: 'calloc'
+  - description: 'free'
 
   
-# - description: If we now have a linked list with nodes storing value 1, 2, 3 in order, which code will return NULL?
-#   week: week 5
-#   difficulty: hard
-#   options:
-#   - description: 'list'
-#   - description: 'list->next'
-#   - description: 'list->next->next'
-#   - description: 'list->next->next->next'
-#     isCorrect: true
+- description: What is the height of a binary search tree that has elements 1, 2, 3, 4, 5, 6, 7 ?
+  week: week 5
+  difficulty: medium
+  options:
+  - description: '3'
+    isCorrect: true
+  - description: '2'
+  - description: '4'
+  - description: '1'
 
   
-# - description: What code in python has the same effect as get_int?
-#   week: week 6
-#   difficulty: easy
-#   options:
-#   - description: 'int(input())'
-#     isCorrect: true
-#   - description: 'input()'
-#   - description: 'int()'
-#   - description: 'get_string()'
+- description: If we now have a linked list with nodes storing value 1, 2, 3 in order, which code will return NULL?
+  week: week 5
+  difficulty: hard
+  options:
+  - description: 'list'
+  - description: 'list->next'
+  - description: 'list->next->next'
+  - description: 'list->next->next->next'
+    isCorrect: true
 
   
-# - description: 'What code produces the same output as for i in range(3): print("#", end="") in python'
-#   week: week 6
-#   difficulty: medium 
-#   options:
-#   - description: 'for (i=0, i < 3, i++) printf("#")'
-#   - description: 'for i in range(3): print("#")'
-#   - description: 'for i in range(3): printf("#", end="")'
-#   - description: 'print("#" * 3)'
-#     isCorrect: true
+- description: What code in python has the same effect as get_int?
+  week: week 6
+  difficulty: easy
+  options:
+  - description: 'int(input())'
+    isCorrect: true
+  - description: 'input()'
+  - description: 'int()'
+  - description: 'get_string()'
 
   
-# - description: 'If we have a list of dictionaries scores = [{score: 100}, {score: 99}, {score: 97}], how can we get access to 97?'
-#   week: week 6
-#   difficulty: hard
-#   options:
-#   - description: print(scores[3][score])
-#   - description: print(scores[2][score])
-#   - description: print(scores[3]['score'])
-#   - description: print(scores[2]['score'])
-#     isCorrect: true
+- description: 'What code produces the same output as for i in range(3): print("#", end="") in python'
+  week: week 6
+  difficulty: medium 
+  options:
+  - description: 'for (i=0, i < 3, i++) printf("#")'
+  - description: 'for i in range(3): print("#")'
+  - description: 'for i in range(3): printf("#", end="")'
+  - description: 'print("#" * 3)'
+    isCorrect: true
 
   
-# - description: Which command can delete the whole table in SQL?
-#   week: week 7
-#   difficulty: easy
-#   options:
-#   - description: 'DROP'
-#     isCorrect: true
-#   - description: 'DELETE'
-#   - description: 'ALTER'
-#   - description: 'ADD'
+- description: 'If we have a list of dictionaries scores = [{score: 100}, {score: 99}, {score: 97}], how can we get access to 97?'
+  week: week 6
+  difficulty: hard
+  options:
+  - description: print(scores[3][score])
+  - description: print(scores[2][score])
+  - description: print(scores[3]['score'])
+  - description: print(scores[2]['score'])
+    isCorrect: true
 
   
-# - description: If we have a table called scores which stored students' names (name,TEXT NOT NULL) and their test scores (score, NUMERIC NOT NULL), which command will select the name of the TOP 10 students?
-#   week: week 7
-#   difficulty: medium
-#   options:
-#   - description: 'SELECT name FROM scores ORDER BY score DESC LIMIT 10'
-#     isCorrect: true
-#   - description: 'SELECT name FROM scores ORDER BY score LIMIT 10'
-#   - description: 'SELECT score FROM scores ORDER BY name DESC LIMIT 10'
-#   - description: 'SELECT score FROM scores ORDER BY name LIMIT 10'
+- description: Which command can delete the whole table in SQL?
+  week: week 7
+  difficulty: easy
+  options:
+  - description: 'DROP'
+    isCorrect: true
+  - description: 'DELETE'
+  - description: 'ALTER'
+  - description: 'ADD'
 
   
-# - description: If I have two tables in SQL, one called movies (id INTEGER, title TEXT NOT NULL) and another one called ratings (id INTEGER, movie_id INTEGER, ratings NUMERIC NOT NULL, FOREIGN KEY(movie_id) REFERENCES movies(id)), how can we select the names of movies with the highest rating?
-#   week: week 7
-#   difficulty: hard
-#   options:
-#   - description: 'SELECT title FROM movies ORDER BY id DESC LIMIT 1'
-#   - description: 'SELECT title FROM movies WHERE id = (SELECT movie_id FROM ratings ORDER BY ratings DESC LIMIT 1)'
-#     isCorrect: true
-#   - description: 'SELECT title FROM movies WHERE id = (SELECT id FROM ratings ORDER BY ratings DESC LIMIT 1)'
-#   - description: 'SELECT title FROM movies ORDER BY movie_id DESC LIMIT 1'
+- description: If we have a table called scores which stored students' names (name,TEXT NOT NULL) and their test scores (score, NUMERIC NOT NULL), which command will select the name of the TOP 10 students?
+  week: week 7
+  difficulty: medium
+  options:
+  - description: 'SELECT name FROM scores ORDER BY score DESC LIMIT 10'
+    isCorrect: true
+  - description: 'SELECT name FROM scores ORDER BY score LIMIT 10'
+  - description: 'SELECT score FROM scores ORDER BY name DESC LIMIT 10'
+  - description: 'SELECT score FROM scores ORDER BY name LIMIT 10'
 
   
-# - description: What is HTTP?
-#   week: week 8
-#   difficulty: easy
-#   options:
-#   - description: 'Hypertext Transfer Protocol'
-#     isCorrect: true
-#   - description: 'Hypertext Transmission Protocol'
-#   - description: 'Hypertext Trading Protocol'
-#   - description: 'Hypertext Transfer Trading Protocol'
+- description: If I have two tables in SQL, one called movies (id INTEGER, title TEXT NOT NULL) and another one called ratings (id INTEGER, movie_id INTEGER, ratings NUMERIC NOT NULL, FOREIGN KEY(movie_id) REFERENCES movies(id)), how can we select the names of movies with the highest rating?
+  week: week 7
+  difficulty: hard
+  options:
+  - description: 'SELECT title FROM movies ORDER BY id DESC LIMIT 1'
+  - description: 'SELECT title FROM movies WHERE id = (SELECT movie_id FROM ratings ORDER BY ratings DESC LIMIT 1)'
+    isCorrect: true
+  - description: 'SELECT title FROM movies WHERE id = (SELECT id FROM ratings ORDER BY ratings DESC LIMIT 1)'
+  - description: 'SELECT title FROM movies ORDER BY movie_id DESC LIMIT 1'
 
   
-# - description: Which tag in HTML is used for a link?
-#   week: week 8
-#   difficulty: medium
-#   options:
-#   - description: '<a>'
-#     isCorrect: true
-#   - description: '<p>'
-#   - description: '<h1>'
-#   - description: '<img>'
+- description: What is HTTP?
+  week: week 8
+  difficulty: easy
+  options:
+  - description: 'Hypertext Transfer Protocol'
+    isCorrect: true
+  - description: 'Hypertext Transmission Protocol'
+  - description: 'Hypertext Trading Protocol'
+  - description: 'Hypertext Transfer Trading Protocol'
 
   
-# - description: How can we write in CSS to select children buttons for the header?
-#   week: week 8
-#   difficulty: hard
-#   options:
-#   - description: 'header : buttons'
-#   - description: 'header .buttons'
-#   - description: 'header > buttons'
-#     isCorrect: true
-#   - description: 'header :: buttons'
+- description: Which tag in HTML is used for a link?
+  week: week 8
+  difficulty: medium
+  options:
+  - description: '<a>'
+    isCorrect: true
+  - description: '<p>'
+  - description: '<h1>'
+  - description: '<img>'
 
   
-# - description: Which part of the Flask framework include HTML files?
-#   week: week 9
-#   difficulty: easy
-#   options:
-#   - description: 'templates'
-#     isCorrect: true
-#   - description: 'static'
-#   - description: 'app.py'
-#   - description: 'requirements.txt'
-
-# - description: If we have a table in db called prices (id INTEGER, good TEXT NOT NULL, price NUMERIC NOT NULL), how can I store the price of a good called tote(not a variable) with price of value $100 (it's obtained through request.form.get)?
-#   week: week 9
-#   difficulty: medium
-#   options:
-#   - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", price)
-#     isCorrect: true
-#   - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", 100)
-#   - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', '100')")
-#   - description: db.execute("INSERT INTO prices (good, price) VALUES (?, ?)", tote, price)
-
- 
-
-
-
-
+- description: How can we write in CSS to select children buttons for the header?
+  week: week 8
+  difficulty: hard
+  options:
+  - description: 'header : buttons'
+  - description: 'header .buttons'
+  - description: 'header > buttons'
+    isCorrect: true
+  - description: 'header :: buttons'
 
   
+- description: Which part of the Flask framework include HTML files?
+  week: week 9
+  difficulty: easy
+  options:
+  - description: 'templates'
+    isCorrect: true
+  - description: 'static'
+  - description: 'app.py'
+  - description: 'requirements.txt'
+
+- description: If we have a table in db called prices (id INTEGER, good TEXT NOT NULL, price NUMERIC NOT NULL), how can I store the price of a good called tote(not a variable) with price of value $100 (it's obtained through request.form.get)?
+  week: week 9
+  difficulty: medium
+  options:
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", price)
+    isCorrect: true
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', ?)", 100)
+  - description: db.execute("INSERT INTO prices (good, price) VALUES ('tote', '100')")
+  - description: db.execute("INSERT INTO prices (good, price) VALUES (?, ?)", tote, price)
